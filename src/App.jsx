@@ -3,10 +3,28 @@ import { QuizQuestions } from "./components/QuizQuestions";
 import Questions from "./components/Questions";
 import Result from "./components/Result";
 function App() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(
+    localStorage.getItem("currentQuestion")
+      ? JSON.parse(localStorage.getItem("currentQuestion"))
+      : 0
+  );
 
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    localStorage.getItem("selectedAnswers")
+      ? JSON.parse(localStorage.getItem("selectedAnswers"))
+      : {}
+  );
+  const [isSubmitted, setIsSubmitted] = useState(
+    localStorage.getItem("isSubmitted")
+      ? JSON.parse(localStorage.getItem("isSubmitted"))
+      : false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("currentQuestion", JSON.stringify(currentQuestion));
+    localStorage.setItem("selectedAnswers", JSON.stringify(selectedAnswers));
+    localStorage.setItem("isSubmitted", JSON.stringify(isSubmitted));
+  }, [currentQuestion, isSubmitted, selectedAnswers]);
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswers({ ...selectedAnswers, [currentQuestion]: answer });
@@ -49,16 +67,23 @@ function App() {
               </button>
               {currentQuestion < QuizQuestions.length - 1 ? (
                 <button
-                  className={!selectedAnswers[currentQuestion] ? "px-4 py-3 cursor-not-allowed opacity-90 bg-purple-600 text-white rounded-md font-bold":"px-4 py-3 bg-purple-600 text-white p-3 font-bold rounded-md"}
+                  className={
+                    !selectedAnswers[currentQuestion]
+                      ? "px-4 py-3 cursor-not-allowed opacity-90 bg-purple-600 text-white rounded-md font-bold"
+                      : "px-4 py-3 bg-purple-600 text-white p-3 font-bold rounded-md"
+                  }
                   onClick={handleNext}
                   disabled={!selectedAnswers[currentQuestion]}
-
                 >
                   Next
                 </button>
               ) : (
                 <button
-                  className={!selectedAnswers[currentQuestion] ? "px-4 py-3 cursor-not-allowed opacity-90 bg-purple-600 text-white rounded-md font-bold":"px-4 py-3 bg-purple-600 text-white p-3 font-bold rounded-md"}
+                  className={
+                    !selectedAnswers[currentQuestion]
+                      ? "px-4 py-3 cursor-not-allowed opacity-90 bg-purple-600 text-white rounded-md font-bold"
+                      : "px-4 py-3 bg-purple-600 text-white p-3 font-bold rounded-md"
+                  }
                   onClick={handleSubmit}
                   disabled={!selectedAnswers[currentQuestion]}
                 >
@@ -68,7 +93,10 @@ function App() {
             </div>
           </div>
         ) : (
-          <Result QuizQuestions={QuizQuestions} selectedAnswers={selectedAnswers}/>
+          <Result
+            QuizQuestions={QuizQuestions}
+            selectedAnswers={selectedAnswers}
+          />
         )}
       </div>
     </div>

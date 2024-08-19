@@ -32,8 +32,8 @@ const Result = ({ QuizQuestions, selectedAnswers }) => {
               <p>
                 Your Answer: {selectedAnswers[index]} -{" "}
                 {selectedAnswers[index] == question.answer
-                  ? "Correct"
-                  : "Incorrect"}
+                  ? <p className="text-green-700 font-bold">Correct</p>
+                  : <p className="text-red-700 font-bold">Incorrect</p>}
               </p>
               {selectedAnswers[index] !== question.answer && (
                 <p> Correct Answer - {question.answer} </p>
@@ -42,6 +42,15 @@ const Result = ({ QuizQuestions, selectedAnswers }) => {
           );
         })}
       </div>
+      <button
+        className="px-4 py-3 bg-red-700 text-white font-bold flex justify-center items-center mx-auto rounded hover:bg-red-800"
+        onClick={() => {
+          localStorage.clear();
+          window.location.reload();
+        }}
+      >
+        Play Again!
+      </button>
     </div>
   );
 };
