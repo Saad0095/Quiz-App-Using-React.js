@@ -10,7 +10,7 @@ const Questions = ({
   return (
     <div className="flex flex-col justify-center h-full">
       <p className="text-xl font-bold mb-4 text-center p-3">
-        {currentQuestion + 1} of {totalQuestions} Questions
+      Question {currentQuestion + 1} of {totalQuestions} 
       </p>
       <h1 className="font-bold text-xl text-center p-3">
         {quizQuestion.question}
@@ -18,14 +18,13 @@ const Questions = ({
       <div className="options p-3">
         {quizQuestion.options.map((option, index) => {
           return (
-            <label className="block" key={index}>
+            <label className="block p-2 m-2 border-2" key={index}>
               <input
                 type="radio"
                 value={option}
                 name={`question - ${currentQuestion}`}
                 onChange={() => onAnswerSelect(option)}
                 checked={selectedAnswer === option}
-              
                 className="m-3"
               />
               {option}

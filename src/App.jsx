@@ -42,8 +42,8 @@ function App() {
     setIsSubmitted(true);
   };
   return (
-    <div className="container mx-auto p-4 h-screen flex flex-col justify-center">
-      <div className="w-1/2 mx-auto">
+    <div className="p-4 min-h-screen flex flex-col justify-center bg-purple-200">
+      <div className="w-1/2 mx-auto shadow-xl shadow-gray-500 bg-gray-50 rounded p-10">
         {!isSubmitted ? (
           <div>
             <Questions
@@ -81,8 +81,8 @@ function App() {
                 <button
                   className={
                     !selectedAnswers[currentQuestion]
-                      ? "px-4 py-3 cursor-not-allowed opacity-90 bg-purple-600 text-white rounded-md font-bold"
-                      : "px-4 py-3 bg-purple-600 text-white p-3 font-bold rounded-md"
+                      ? "px-4 py-3 cursor-not-allowed opacity-90 bg-green-500 text-white rounded-md font-bold"
+                      : "px-4 py-3 bg-green-500 text-white p-3 font-bold rounded-md"
                   }
                   onClick={handleSubmit}
                   disabled={!selectedAnswers[currentQuestion]}
