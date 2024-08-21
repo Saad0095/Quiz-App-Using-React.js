@@ -43,7 +43,7 @@ function App() {
   };
   return (
     <div className="p-4 min-h-screen flex flex-col justify-center bg-purple-200">
-      <div className="w-1/2 mx-auto shadow-xl shadow-gray-500 bg-gray-50 rounded p-10">
+      <div className="w-full sm:w-2/3 lg:w-1/2 mx-auto shadow-xl shadow-gray-500 bg-gray-50 rounded p-10">
         {!isSubmitted ? (
           <div>
             <Questions

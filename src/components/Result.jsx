@@ -15,12 +15,9 @@ const Result = ({ QuizQuestions, selectedAnswers }) => {
 
   return (
     <div>
-      <h1 className="text-center text-2xl font-bold my-2">
-        {score < 2 ? "Better Luck Next Time!" : "Great!"}
-      </h1>
-      <p className="text-center my-2">
+      <h1 className="text-center text-2xl font-bold my-5">
         Your Score is {score} Out Of {QuizQuestions.length}
-      </p>
+      </h1>
       <div>
         {QuizQuestions.map((question, index) => {
           return (

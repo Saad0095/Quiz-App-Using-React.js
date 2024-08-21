@@ -35,18 +35,18 @@ export const QuizQuestions = [
         answer: "Neil Armstrong"
     },
     {
-        question: "Which element has the chemical symbol 'O'?",
-        options: ["Oxygen", "Osmium", "Oganesson", "Ozone"],
-        answer: "Oxygen"
-    },
+        question: "Which famous scientist developed the theory of relativity?",
+        options: ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Niels Bohr"],
+        answer: "Albert Einstein"
+    },    
     {
         question: "Which is the largest ocean on Earth?",
         options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
         answer: "Pacific Ocean"
     },
     {
-        question: "What does 'HTTP' stand for in web development?",
-        options: ["Hypertext Transfer Protocol", "Hyperlink Text Transfer Protocol", "Hypertext Transfer Procedure", "Hypertext Transfer Program"],
-        answer: "Hypertext Transfer Protocol"
+        question: "Which is the tallest mountain in the world?",
+        options: ["K2", "Kangchenjunga", "Mount Everest", "Makalu"],
+        answer: "Mount Everest"
     }
 ];
